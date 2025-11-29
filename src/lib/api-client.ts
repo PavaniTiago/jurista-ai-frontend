@@ -7,7 +7,19 @@ import type {
 } from "@/types/document";
 import type { QueryResponse } from "@/types/query";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+// Normalize API base URL to ensure it's always absolute with protocol
+function getApiBaseUrl(): string {
+  const url = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+  
+  // If URL doesn't start with http:// or https://, add https://
+  if (!url.startsWith("http://") && !url.startsWith("https://")) {
+    return `https://${url}`;
+  }
+  
+  return url;
+}
+
+const API_BASE_URL = getApiBaseUrl();
 
 const supabase = createClient();
 
