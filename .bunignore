@@ -1,0 +1,23 @@
+# Arquivos que o Bun deve ignorar completamente
+# ⚠️ IMPORTANTE: Use "bun run test" para executar testes (usa Vitest)
+# ❌ NÃO use "bun test" diretamente - ele tentará usar o test runner nativo
+#    que não é compatível com os mocks do Vitest (vi.mock)
+
+# Ignorar todos os arquivos de teste para forçar o uso do Vitest
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+**/__tests__/**
+
+# Ignorar arquivos do Playwright
+e2e/
+playwright-report/
+test-results/
+playwright.config.ts
+
+# Outros arquivos a ignorar
+node_modules/
+dist/
+.next/
+coverage/

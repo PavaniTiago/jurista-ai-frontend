@@ -4,33 +4,23 @@ import { QueryProvider } from "@/components/providers/query-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
-
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+    variable: "--font-geist-sans",
+    subsets: ["latin"],
 });
-
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+    variable: "--font-geist-mono",
+    subsets: ["latin"],
 });
-
 export const metadata: Metadata = {
-  title: "Jurista AI - Análise Inteligente de Documentos Jurídicos",
-  description:
-    "Plataforma de análise e consulta de documentos legais com inteligência artificial",
+    title: "Jurista AI - Análise Inteligente de Documentos Jurídicos",
+    description: "Plataforma de análise e consulta de documentos legais com inteligência artificial",
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
+export default function RootLayout({ children, }: Readonly<{
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="pt-BR" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    return (<html lang="pt-BR" suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider>
           <QueryProvider>
             {children}
@@ -38,6 +28,5 @@ export default function RootLayout({
           </QueryProvider>
         </ThemeProvider>
       </body>
-    </html>
-  );
+    </html>);
 }
